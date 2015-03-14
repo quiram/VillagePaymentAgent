@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="kj905" dynamic-insert="false" dynamic-update="false" lazy="false" mutable="true" name="org.haftrust.verifier.model.Verifier" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="HT_VERIFIER">
+        <id name="id" type="int">
+            <column name="IDVERIFIER"/>
+            <generator class="identity"/>
+        </id>
+        <property name="firstName" type="string">
+            <column length="45" name="FIRST_NAME" not-null="false">
+            </column>
+        </property>
+        <property name="middleName" type="string">
+            <column length="45" name="MIDDLE_NAME" not-null="false">
+            </column>
+        </property>
+        <property name="lastName" type="string">
+            <column length="45" name="LAST_NAME" not-null="false">
+            </column>
+        </property>
+        <property name="gender" type="string">
+            <column length="1" name="GENDER" not-null="false">
+            </column>
+        </property>
+        <property name="dob" type="date">
+            <column name="DOB" not-null="false">
+            </column>
+        </property>
+        <property name="email" type="string">
+            <column length="45" name="EMAIL" not-null="true">
+            </column>
+        </property>
+        <property name="telephoneNumber" type="string">
+            <column length="25" name="TELEPHONE_NUMBER" not-null="false">
+            </column>
+        </property>
+        <property name="password" type="string">
+            <column length="45" name="PASSWORD" not-null="true">
+            </column>
+        </property>
+        <property name="educationType" type="string">
+            <column length="45" name="EDUCATION_TYPE" not-null="false">
+            </column>
+        </property>
+        <property name="educationLevel" type="string">
+            <column length="45" name="EDUCATION_LEVEL" not-null="false">
+            </column>
+        </property>
+        <property name="status" type="string">
+            <column length="45" name="STATUS" not-null="true">
+            </column>
+        </property>
+        <property name="statusDate" type="date">
+            <column name="STATUS_DATE" not-null="true">
+            </column>
+        </property>
+        <property name="startDate" type="date">
+            <column name="START_DATE" not-null="false">
+            </column>
+        </property>
+        <property name="vacancyId" type="int">
+            <column name="HT_VACANCY_IDVACANCY" not-null="false">
+            </column>
+        </property>
+        <property name="verificationStatus" type="string">
+            <column length="45" name="VERIFICATION_STATUS" not-null="false">
+            </column>
+        </property>
+        <property name="verificationDate" type="date">
+            <column name="VERIFICATION_DATE" not-null="false">
+            </column>
+        </property>
+        <property name="verificationComment" type="string">
+            <column length="100" name="VERIFICATION_COMMENT" not-null="false">
+            </column>
+        </property>
+        <many-to-one cascade="all" class="org.haftrust.verifier.model.Device" column="HT_DEVICE_IMEI" name="mobileDevice" not-null="false"/>
+        <many-to-one cascade="all" class="org.haftrust.verifier.model.Image" column="HT_IMAGE_IDIMAGE" name="image" not-null="false"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="kj905" lazy="false" name="org.haftrust.verifier.model.Interview" table="HT_INTERVIEW">
+        <id name="id" type="int">
+            <column name="IDINTERVIEW"/>
+            <generator class="identity"/>
+        </id>
+        <property name="date" type="date">
+            <column name="DATE" not-null="false">
+            </column>
+        </property>
+        <property name="address" type="string">
+            <column length="100" name="ADDRESS" not-null="false">
+            </column>
+        </property>
+        <property name="status" type="string">
+            <column length="45" name="STATUS" not-null="true">
+            </column>
+        </property>
+        <property name="comment" type="string">
+            <column length="100" name="COMMENT" not-null="false">
+            </column>
+        </property>
+        <property name="employeeType" type="string">
+            <column length="25" name="EMPLOYEE_TYPE" not-null="true">
+            </column>
+        </property>
+        <many-to-one cascade="all" class="org.haftrust.verifier.model.Verifier" column="EMP_ID" name="verifier" not-null="true"/>
+        <many-to-one cascade="all" class="org.haftrust.verifier.model.Fom" column="HT_FOM_IDFOM" name="fom" not-null="true"/>
+    </class>
+</hibernate-mapping>

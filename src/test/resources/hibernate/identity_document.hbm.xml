@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="kj905" lazy="false" name="org.haftrust.verifier.model.IdentityDocument" table="HT_IDENTITY_DOCUMENT">
+        <id name="id" type="int">
+            <column name="IDIDENTITYDOCUMENT"/>
+            <generator class="identity"/>
+        </id>
+        <property name="number" type="string">
+            <column length="25" name="NUMBER" not-null="true">
+            </column>
+        </property>
+        <property name="type" type="string">
+            <column length="25" name="TYPE" not-null="true">
+            </column>
+        </property>
+        <property name="issueDate" type="date">
+            <column name="ISSUE_DATE" not-null="true">
+            </column>
+        </property>
+        <property name="expiryDate" type="date">
+            <column name="EXPIRY_DATE" not-null="true">
+            </column>
+        </property>
+        <property name="verificationStatus" type="string">
+            <column length="45" name="VERIFICATION_STATUS" not-null="false">
+            </column>
+        </property>
+        <property name="verificationDate" type="date">
+            <column name="VERIFICATION_DATE" not-null="false">
+            </column>
+        </property>
+        <property name="verificationComment" type="string">
+            <column length="100" name="VERIFICATION_COMMENT" not-null="false">
+            </column>
+        </property>
+        <property name="employeeType" type="string">
+            <column length="25" name="EMPLOYEE_TYPE" not-null="true">
+            </column>
+        </property>
+        <many-to-one cascade="all" class="org.haftrust.verifier.model.Verifier" column="EMP_ID" name="verifier" not-null="true"/>
+    </class>
+</hibernate-mapping>

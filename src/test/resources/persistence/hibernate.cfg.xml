@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!--property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property-->
+        <property name="hibernate.c3p0.min_size">7</property>
+        <property name="hibernate.c3p0.max_size">53</property>
+        <property name="hibernate.c3p0.timeout">100</property>
+        <property name="hibernate.c3p0.max_statements">50</property>
+        <property name="hibernate.c3p0.idle_test_period">1000</property>
+        <property name="hibernate.c3p0.validate">true</property>
+        <property name="hibernate.connection.provider_class">org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider</property>
+
+        <mapping resource="hibernate/address.hbm.xml"/>
+        <mapping resource="hibernate/bank.hbm.xml"/>
+        <mapping resource="hibernate/country.hbm.xml"/>
+        <mapping resource="hibernate/device.hbm.xml"/>
+        <mapping resource="hibernate/district.hbm.xml"/>
+        <mapping resource="hibernate/fom.hbm.xml"/>
+        <mapping resource="hibernate/identity_document.hbm.xml"/>
+        <mapping resource="hibernate/image.hbm.xml"/>
+        <mapping resource="hibernate/interview.hbm.xml"/>
+        <mapping resource="hibernate/reference.hbm.xml"/>
+        <mapping resource="hibernate/region.hbm.xml"/>
+        <mapping resource="hibernate/static_data.hbm.xml"/>
+        <mapping resource="hibernate/verifier.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>

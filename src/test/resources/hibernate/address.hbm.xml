@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="kj905" lazy="false" name="org.haftrust.verifier.model.Address" table="HT_ADDRESS">
+        <id name="id" type="int">
+            <column name="IDADDRESS"/>
+            <generator class="identity"/>
+        </id>
+        <property name="street" type="string">
+            <column length="45" name="STREET" not-null="false">
+            </column>
+        </property>
+        <property name="village" type="string">
+            <column length="45" name="VILLAGE" not-null="false">
+            </column>
+        </property>
+        <property name="postcode" type="string">
+            <column length="45" name="POSTCODE" not-null="true">
+            </column>
+        </property>
+        <property name="town" type="string">
+            <column length="45" name="TOWN" not-null="false">
+            </column>
+        </property>
+        <property name="city" type="string">
+            <column length="45" name="CITY" not-null="false">
+            </column>
+        </property>
+        <property name="verificationStatus" type="string">
+            <column length="45" name="VERIFICATION_STATUS" not-null="false">
+            </column>
+        </property>
+        <property name="verificationDate" type="date">
+            <column name="VERIFICATION_DATE" not-null="false">
+            </column>
+        </property>
+        <property name="verificationComment" type="string">
+            <column length="100" name="VERIFICATION_COMMENT" not-null="false">
+            </column>
+        </property>
+        <property name="employeeType" type="string">
+            <column length="25" name="EMPLOYEE_TYPE" not-null="true">
+            </column>
+        </property>
+        <many-to-one cascade="all" class="org.haftrust.verifier.model.Verifier" column="EMP_ID" embed-xml="true" insert="true" name="verifier" not-null="true" optimistic-lock="true" update="true"/>
+        <many-to-one cascade="all" class="org.haftrust.verifier.model.Country" column="HT_COUNTRY_IDCOUNTRY" name="country" not-null="true"/>
+        <many-to-one cascade="all" class="org.haftrust.verifier.model.Region" column="HT_REGION_IDREGION" name="region" not-null="true"/>
+        <many-to-one cascade="all" class="org.haftrust.verifier.model.District" column="HT_DISTRICT_IDDISTRICT" embed-xml="true" insert="true" name="district" not-null="true" optimistic-lock="true" update="true"/>
+    </class>
+</hibernate-mapping>

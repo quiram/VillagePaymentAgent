@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="kj905" lazy="false" name="org.haftrust.verifier.model.StaticData" table="HT_STATIC_DATA">
+        <id name="id" type="int">
+            <column name="IDSTATICDATA"/>
+            <generator class="identity"/>
+        </id>
+        <property name="type" type="string">
+            <column length="45" name="TYPE" not-null="true">
+            </column>
+        </property>
+        <property name="value" type="string">
+            <column length="45" name="VALUE" not-null="true">
+            </column>
+        </property>
+        <property name="description" type="string">
+            <column length="45" name="DESCRIPTION" not-null="false">
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="KJ905" lazy="false" name="org.haftrust.verifier.model.Device" table="HT_DEVICE">
+        <id name="imei" type="long">
+            <column name="IMEI"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="productNumber" type="string">
+            <column length="45" name="PRODUCT_NUMBER" not-null="true">
+            </column>
+        </property>
+        <property name="modelNumber" type="string">
+            <column length="45" name="MODEL_NUMBER" not-null="true">
+            </column>
+        </property>
+        <property name="htMobileNumber" type="string">
+            <column length="25" name="HT_MOBILE_NUMBER" not-null="false">
+            </column>
+        </property>
+        <property name="allocation" type="string">
+            <column length="4" name="ALLOCATION" not-null="false">
+            </column>
+        </property>
+        <property name="allocationDate" type="date">
+            <column name="ALLOCATION_DATE" not-null="false">
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

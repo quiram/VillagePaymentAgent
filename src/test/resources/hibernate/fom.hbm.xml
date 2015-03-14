@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="kj905" lazy="false" name="org.haftrust.verifier.model.Fom" table="HT_FOM">
+        <id name="id" type="int">
+            <column name="IDFOM"/>
+            <generator class="increment"/>
+        </id>
+        <property name="firstName" type="string">
+            <column length="45" name="FIRST_NAME" not-null="true">
+            </column>
+        </property>
+        <property name="lastName" type="string">
+            <column length="45" name="LAST_NAME" not-null="true">
+            </column>
+        </property>
+        <property name="email" type="string">
+            <column length="45" name="EMAIL" not-null="true">
+            </column>
+        </property>
+        <property name="password" type="string">
+            <column length="45" name="PASSWORD" not-null="true">
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

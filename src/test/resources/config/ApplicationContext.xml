@@ -1,0 +1,22 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>properties/hibernate.properties</value>
+                <value>properties/database.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Database Configuration -->
+    <import resource="../persistence/DataSource.xml"/>
+    <import resource="../persistence/Hibernate.xml"/>
+
+    <!-- DAO Declaration -->
+    <import resource="../persistence/Dao.xml"/>
+
+</beans>

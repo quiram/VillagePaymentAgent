@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="kj905" lazy="false" name="org.haftrust.verifier.model.Bank" table="HT_BANK">
+        <id name="id" type="int">
+            <column name="IDBANK"/>
+            <generator class="identity"/>
+        </id>
+        <property name="accountNumber" type="string">
+            <column length="15" name="ACCOUNTNUMBER" not-null="true">
+            </column>
+        </property>
+        <property name="bankName" type="string">
+            <column length="45" name="BANK_NAME" not-null="true">
+            </column>
+        </property>
+        <property name="address" type="string">
+            <column length="100" name="ADDRESS" not-null="true">
+            </column>
+        </property>
+        <property name="sortcode" type="string">
+            <column length="10" name="SORT_CODE" not-null="false">
+            </column>
+        </property>
+        <property name="iban" type="string">
+            <column length="45" name="IBAN" not-null="false">
+            </column>
+        </property>
+        <property name="contactNumber" type="string">
+            <column length="25" name="CONTACT_NUMBER" not-null="false">
+            </column>
+        </property>
+        <property name="verificationStatus" type="string">
+            <column length="45" name="VERIFICATION_STATUS" not-null="false">
+            </column>
+        </property>
+        <property name="verificationDate" type="date">
+            <column name="VERIFICATION_DATE" not-null="false">
+            </column>
+        </property>
+        <property name="verificationComment" type="string">
+            <column length="100" name="VERIFICATION_COMMENT" not-null="false">
+            </column>
+        </property>
+        <property name="employeeType" type="string">
+            <column length="25" name="EMPLOYEE_TYPE" not-null="true">
+            </column>
+        </property>
+        <many-to-one cascade="all" class="org.haftrust.verifier.model.Verifier" column="EMP_ID" name="verifier" not-null="true"/>
+    </class>
+</hibernate-mapping>
